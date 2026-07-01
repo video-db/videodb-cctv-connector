@@ -2,7 +2,7 @@
 
 A small on-prem connector that relays CCTV/NVR/DVR feeds **outbound** to VideoDB.
 
-The connector has one job: run inside the customer network, read a local camera/recorder/source, create a VideoDB RTStream push destination, and publish the feed to VideoDB with ffmpeg.
+The connector has one job: run inside the customer network, read a local camera/recorder/source, create a VideoDB RTStream push destination, and publish the feed to VideoDB.
 
 
 ```txt
@@ -107,7 +107,7 @@ For a long-running live relay, omit `--duration`; the default for live sources i
 
 ## Bare-metal alternative
 
-Requires Python 3.11+, git, and ffmpeg.
+Requires Python 3.11+ and git.
 
 ```bash
 python -m venv .venv
@@ -159,12 +159,12 @@ For first tests, a lower-resolution substream is often best.
 - Treat generated RTMP push URLs as secrets. The main connector hides them by default.
 - Do not email camera/NVR passwords.
 - Prefer storing camera URLs in `.env` or a local secret manager.
-- The connector masks credentials in its own logs, but ffmpeg/vendor errors may still reveal source details in some failure cases.
+- The connector masks credentials in its own logs, but source/vendor errors may still reveal source details in some failure cases.
 
 ## Files
 
 - `push_stream.py` — recommended connector entrypoint.
-- `push_feed.sh` — low-level ffmpeg helper if you already have a VideoDB push URL.
+- `push_feed.sh` — low-level publisher helper if you already have a VideoDB push URL.
 - `Dockerfile` — reproducible container build.
 - `docker-compose.example.yml` — optional long-running service example.
 - `.env.example` — environment variable template.
