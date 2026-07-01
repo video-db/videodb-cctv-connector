@@ -1,0 +1,9 @@
+# Example only. Copy to docker-compose.yml and edit .env before running.
+# The connector reads VIDEO_DB_API_KEY, CAMERA_RTSP_URL, and VIDEODB_STREAM_NAME from .env.
+services:
+  videodb-cctv-connector:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    # Optional one-off validation command:
+    # command: ["--synthetic", "--duration", "60", "--name", "cctv-synthetic-test"]

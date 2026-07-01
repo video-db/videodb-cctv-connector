@@ -1,0 +1,4 @@
+python-dotenv>=1.0
+# Push ingest support is currently pinned to the SDK release branch used for the pilot.
+# Replace with `videodb>=0.4.5` once the push-capable release is available on PyPI.
+videodb @ git+https://github.com/video-db/videodb-python.git@release-0-4-5
