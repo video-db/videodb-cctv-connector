@@ -43,9 +43,9 @@ No inbound firewall rule to the customer site is required for push mode.
 
 ## Recommended: Docker
 
-VideoDB can provide a prebuilt image, or the customer can build it locally. Local builds need temporary outbound access to PyPI/GitHub to install the VideoDB SDK dependency.
+Prebuilt Docker image archives are attached to GitHub Releases. Local builds need temporary outbound access to PyPI/GitHub to install the VideoDB SDK dependency.
 
-If using a prebuilt release artifact, load it first:
+If using a prebuilt release artifact, download it from the release page and load it first:
 
 ```bash
 docker load -i videodb-cctv-connector-<tag>-docker-image.tar.gz
