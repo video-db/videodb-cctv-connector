@@ -34,6 +34,3 @@ docker load -i videodb-cctv-connector-v0.1.0-docker-image.tar.gz
 docker images videodb-cctv-connector
 ```
 
-## Private SDK dependency
-
-If the SDK dependency is private, configure repository secret `VIDEODB_PYTHON_GITHUB_TOKEN` with read access to `video-db/videodb-python`.
