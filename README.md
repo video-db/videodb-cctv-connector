@@ -43,15 +43,20 @@ No inbound firewall rule to the customer site is required for push mode.
 
 ## Recommended: Docker
 
-Prebuilt Docker image archives are attached to GitHub Releases. Local builds need temporary outbound access to PyPI/GitHub to install the VideoDB SDK dependency.
+Prebuilt Docker image archives are attached to GitHub Releases.
 
-If using a prebuilt release artifact, download it from the release page and load it first:
+Download the artifact that matches the connector machine:
+
+- `linux-amd64` for most Linux servers and Windows Docker Desktop setups.
+- `linux-arm64` for ARM machines, including most Apple Silicon Docker Desktop setups.
+
+Load the selected artifact:
 
 ```bash
-docker load -i videodb-cctv-connector-<tag>-docker-image.tar.gz
+docker load -i videodb-cctv-connector-<tag>-<platform>-docker-image.tar.gz
 ```
 
-Or build the connector image locally:
+If a matching artifact is not available, or Docker reports a platform/architecture issue, build the connector image locally:
 
 ```bash
 docker build -t videodb-cctv-connector .

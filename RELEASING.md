@@ -2,13 +2,15 @@
 
 ## Docker image artifact
 
-A GitHub Actions workflow builds a Docker image and attaches it to each published GitHub Release.
+A GitHub Actions workflow builds Linux AMD64 and Linux ARM64 Docker images and attaches them to each published GitHub Release.
 
 Release asset format:
 
 ```txt
-videodb-cctv-connector-<tag>-docker-image.tar.gz
-videodb-cctv-connector-<tag>-docker-image.tar.gz.sha256
+videodb-cctv-connector-<tag>-linux-amd64-docker-image.tar.gz
+videodb-cctv-connector-<tag>-linux-amd64-docker-image.tar.gz.sha256
+videodb-cctv-connector-<tag>-linux-arm64-docker-image.tar.gz
+videodb-cctv-connector-<tag>-linux-arm64-docker-image.tar.gz.sha256
 ```
 
 ## Create a release
@@ -21,7 +23,7 @@ videodb-cctv-connector-<tag>-docker-image.tar.gz.sha256
    ```
 
 2. Publish a GitHub Release for that tag.
-3. The `Build release Docker image` workflow will attach the Docker image archive to the release.
+3. The `Build release Docker image` workflow will attach platform-specific Docker image archives to the release.
 
 ## Manual rebuild for an existing release
 
@@ -30,7 +32,7 @@ Run the `Build release Docker image` workflow manually and provide the existing 
 ## Loading the release image
 
 ```bash
-docker load -i videodb-cctv-connector-v0.1.0-docker-image.tar.gz
+docker load -i videodb-cctv-connector-v0.1.0-linux-amd64-docker-image.tar.gz
 docker images videodb-cctv-connector
 ```
 
